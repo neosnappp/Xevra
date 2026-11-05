@@ -3,7 +3,7 @@ if getgenv().xevra then
 end
 getgenv().xevra = true
 
-local BASE = "https://raw.githubusercontent.com/KULLANICI/xevra/main"
+local BASE = "https://github.com/neosnappp/Xevra/blob/main/loader.lua"
 
 local gameScripts = {
 	[606849621] = BASE .. "/hub-jailbreak.lua",
