@@ -1,22 +1,21 @@
 if getgenv().xevra then
-	return
+	error('xevra is already running !')
 end
 getgenv().xevra = true
 
-local BASE = "https://github.com/neosnappp/Xevra/blob/main/loader.lua"
+local BASE = "https://raw.githubusercontent.com/KULLANICI/xevra/main"
 
 local gameScripts = {
 	[606849621] = BASE .. "/hub-jailbreak.lua",
 }
 
-local ICON = "rbxassetid://6031094667"
+local ICON = "rbxassetid://0000000000"
 
 local function notify(title, text, duration)
 	pcall(function()
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = title,
 			Text = text,
-			Icon = ICON,
 			Duration = duration or 5,
 		})
 	end)
@@ -26,7 +25,7 @@ local scriptUrl = gameScripts[game.PlaceId]
 
 if not scriptUrl then
 	getgenv().xevra = false
-	notify("xevra", "game not supported")
+	notify("Xevra", "Game not supported!")
 	return
 end
 
@@ -40,8 +39,8 @@ end)
 
 if not ok then
 	getgenv().xevra = false
-	notify("xevra", "failed to load: " .. tostring(fetchErr), 6)
+	notify("Xevra", "Failed to load: " .. tostring(fetchErr), 6)
 	return
 end
 
-notify("xevra", "loaded", 3)
+notify("Xevra", "Hub loaded", 3)
